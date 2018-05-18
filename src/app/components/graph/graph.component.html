@@ -1,5 +1,63 @@
 <div>
-  <div class="col-md-6">
+
+  <br>
+
+<form>
+  <div class="col-md-3">
+    <select (change)="setStore($event.target.value)" class="form-control">
+      <option>Store</option>
+      <option *ngFor='let store of stores'>{{store}}</option>
+    </select >
+    <br>
+    <select (change)="setGender($event.target.value)" class="form-control" >
+      <option>Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select >
+    <br>
+    <select (change)="setHomeOwner($event.target.value)" class="form-control" >
+      <option>Home Owner</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select >
+    <br>
+    LOR: <input type="text" class="form-control" (change)="setLOR($event.target.value)">
+    <br>
+    Number of Adults: <input type="text" class="form-control" (change)="setNumAdults($event.target.value)">
+    <br><br>
+    <select (change)="setHasKids($event.target.value)" class="form-control" >
+      <option>Has Kids</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select >
+    <br>
+    <select (change)="setMetro($event.target.value)" class="form-control" >
+      <option>Metro/Non Metro</option>
+      <option>Metro</option>
+      <option>Non Metro</option>
+    </select >
+    <br>
+    <select (change)="setUrban($event.target.value)" class="form-control" >
+      <option>Urban/Rural</option>
+      <option>Urban</option>
+      <option>Rural</option>
+    </select >
+    <br>
+    <select (change)="setMarital($event.target.value)" class="form-control" >
+      <option>Marital Status</option>
+      <option>Married</option>
+      <option>Single</option>
+    </select >
+    <br>
+    <input type="submit" value="Submit" (click)="getStoreInfo()">
+  </div>
+</form>
+
+<button (click)="showStore()">Click</button>
+
+<br><br><br>
+
+  <div class="col-md-6" *ngIf="chartReady">
     <canvas baseChart
               [datasets]="barChartData"
               [labels]="barChartLabels"
@@ -10,6 +68,7 @@
               (chartClick)="chartClicked($event)"></canvas>
   </div>
 
+<!--
   <div class="col-md-6">
   <canvas baseChart
       [data]="doughnutChartData"
@@ -18,5 +77,5 @@
       (chartHover)="chartHovered($event)"
       (chartClick)="chartClicked($event)"></canvas>
   </div>
-
+-->
 </div>
